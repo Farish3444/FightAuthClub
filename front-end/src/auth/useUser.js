@@ -12,16 +12,16 @@ export const useUser = () => {
     const [user, setUser] = useState(() => {
         if (!token) return {};
         return getPayloadFromToken(token);
-    });
+    }); 
 
     useEffect(() => {
         if (!token) {
             setUser({});
             console.log('rerender happened')
         } else {
-            console.log('ELSE REREDENDER')
-            
+            console.log('ELSE REREDENDER',user)
             setUser(getPayloadFromToken(token));
+
         }
     }, [token]);
 

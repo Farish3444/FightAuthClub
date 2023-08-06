@@ -1,28 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useMemo } from 'react'
 import FC from '../../src/OIP.jpeg';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 const Home = () => {
 
   const navigate = useNavigate();
 
-  // useEffect(()=>{
-  //   alert('we have entered home')
-  // },[])
+   useEffect(()=>{
+     console.log('we have entered home')
+   },[])
 
   return (
     <div>
+    <Header />
         <img src={FC} alt='FC' />
-        <Button 
-        variant='contained'
-        onClick={()=>{
-          localStorage.removeItem('token');
-          navigate('/');
-      }}
-        >
-          LogOut
-        </Button>
     </div>
   )
 }

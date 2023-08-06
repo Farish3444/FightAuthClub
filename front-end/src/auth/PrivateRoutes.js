@@ -7,13 +7,11 @@ import { useToken } from './useToken';
 
 const PrivateRoutes = ({ children,path,...rest }) => {
   
-  // const user  = true;
-  // useUser();
-  const { token } = useToken();
-
-  console.log(token,'private token')
+  const { user } = useUser();
+  const token = useToken();
   
-  if (!token) {
+  
+  if (!user) {
     return <Navigate to="/" />;
   }
   

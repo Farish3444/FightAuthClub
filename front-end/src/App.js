@@ -2,14 +2,17 @@ import logo from './logo.svg';
 import './App.css';
 import BoxLayout from './components/BoxLayout';
 import AllRoutes from './routes/Routes';
+import Header from './components/Header';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+    <Toaster />
+    <header className="App-header">
       <AllRoutes /> 
-      </header>
-    </div>
+  </header>
+  </div>
   );
 }
 

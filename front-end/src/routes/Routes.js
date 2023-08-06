@@ -5,31 +5,38 @@ import SignUppage from '../pages/SignUppage';
 import Home from '../pages/Home';
 import  PrivateRoutes  from '../auth/PrivateRoutes';
 import { useUser } from '../auth/useUser';
+import AddPage from '../pages/AddPage';
+import ListPage from '../pages/ListPage';
 
 
 const AllRoutes = () => {
   
+  const user = useUser();
+
   return (
     <>
       
-    <Router>
-
       <Routes>     
         
       <Route path='/' index element={<LoginPage />} /> 
 
-     <Route path='/home' element={
-          <PrivateRoutes>
-            <Home />
-          </PrivateRoutes>
-     } />
+    {
+      Object.keys(user).length > 0 &&
+      <Route path='/home' element={
+        // <PrivateRoutes>
+        <Home />
+        // </PrivateRoutes>
+      } /> 
+    }  
       
         
       <Route path='/signup' element={<SignUppage />} />
+
+      <Route path='/addpage' element={<AddPage />}   />
+      <Route path='/listpage' element={<ListPage />} />
         
         </Routes>
 
-      </Router>
 
     </>
   )

@@ -24,7 +24,6 @@ const LoginPage = () => {
     if (inputRef && inputRef.current) {
       inputRef.current.focus();
     }
-    console.log(token,'token USE VALUE')
   },[])
 
   const LoginAPI = async()=>{
@@ -34,11 +33,15 @@ const LoginPage = () => {
         email:loginval.email,
         password:loginval.password
       })
-      const {token} = response.data;
+      const { token } = response.data;
+
+      console.log(token)
       setToken(token);
-      if(token){
-      navigate('/home');
-    }
+      // if (Object.keys(user).length === 0) {
+      //   navigate("/", { replace: true });
+      // }else{
+        // }
+        navigate('/home')
 
     } catch(err){
       alert('Invalid username or Login')
